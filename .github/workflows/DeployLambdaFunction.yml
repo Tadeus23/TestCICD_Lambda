@@ -59,15 +59,3 @@ jobs:
           AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
           AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
           AWS_DEFAULT_REGION: "eu-central-1"
-
-      - name: Debug orphan processes
-        run: |
-          echo "Checking for orphan processes..."
-          ps aux
-
-      - name: Cleanup orphan processes
-        if: always()
-        run: |
-          echo "Cleaning up any orphan processes..."
-          pkill -f "aws"
-          pkill -f "zip"
