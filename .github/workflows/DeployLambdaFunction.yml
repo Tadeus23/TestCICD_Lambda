@@ -11,16 +11,14 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v3
-
-      - name: Install zip tool
-        run: sudo apt-get install zip -y
-
-      - name: Create Zip file for Lambda function
-        run: cd src && zip -r code.zip .
-
-      - name: Install AWS CLI v2
-        uses: imehedi/actions-awscli-v2@latest
+      - uses: actions/checkout@v2
+      - uses: actions/setup-python@v2
+        with:
+          python-version: '3.11'
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install awscli
 
       - name: Update Lambda function code
         run: |
