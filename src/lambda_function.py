@@ -3,7 +3,7 @@ import json
 def lambda_handler(event, context):
     return {
         'statusCode': 200,
-        'body': json.dumps('Hello from Lambda!')
+        'body': json.dumps('Hello from Lambda! V1')
     }
 
 if __name__ == '__main__':
