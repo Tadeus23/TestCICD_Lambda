@@ -20,6 +20,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install awscli
 
+      - name: Install zip tool
+        uses: montudor/action-zip@v1
+      - name: Create zip file for Lambda function
+        run: cd src && zip -r code.zip .
+
       - name: Update Lambda function code
         run: |
           aws lambda update-function-code --function-name arn:aws:lambda:eu-central-1:637423656827:function:TestCICDFunction --zip-file fileb://code.zip
