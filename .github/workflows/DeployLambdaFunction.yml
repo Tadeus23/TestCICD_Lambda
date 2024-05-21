@@ -20,7 +20,7 @@ jobs:
         run: cd src && zip -r code.zip .
 
       - name: Install AWS CLI v2
-        uses: aws-actions/aws-cli-action@v2
+        uses: imehedi/actions-awscli-v2@latest
 
       - name: Update Lambda function code
         run: |
